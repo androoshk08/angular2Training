@@ -1,0 +1,61 @@
+
+<label>First name: {{name}}</label><br>
+<input type="text" [(ngModel)] = "name"><br>
+
+<button (click)="hello()"> Test</button>
+
+<div *ngIf="condition">
+  <label> test condition</label>
+
+</div>
+
+<div *ngIf="condition">
+  <label> test condition</label>
+
+</div>
+
+<div class="firstName" [class.firstName]="!isSpecial">
+ First name hidden
+</div>
+
+<div class="container" [ngSwitch] ="myVar">
+  <div *ngSwitchCase="'A'"> Var is A</div>
+  <div *ngSwitchCase="'B'"> Var is B</div>
+  <div *ngSwitchDefault> Var is something else</div>
+</div>
+
+<div [style.background-color]="'yellow'">
+  USes fixed yellow background
+</div>
+
+<div [ngStyle]="{color:'white', 'background-color':'blue'}">
+  Uses fixed white text on blue background
+</div>
+
+<div [ngClass]="{bordered: false}">This is never bordered</div>
+<div [ngClass]="{bordered: true}">This is always bordered</div>
+<div [ngClass]="{bordered: isSpecial}">Using object literal. Bordered {{isSpecial ? "ON" : "OFF"}}</div>
+
+
+<div class="ui list" *ngFor="let c of cities">
+  <div class="item">{{c.valueOf()}}</div>
+</div>
+
+<div class="ui list" *ngFor="let c of cities; let num =index">
+  <div class="item">{{num+1}} - {{c.valueOf()}}
+    <button class="close" (click)="delete(c)"> x</button>
+  </div>
+</div>
+
+
+<br>
+<br>
+//property binding vs attribute binding???<br>
+<input [value]="currentHero.firstName"
+       (input) = "currentHero.firstName=$event.target.value">
+
+<br>
+<br>
+//template reference variables<br>
+<input #phone placeholder="phone number">
+<button (click)="callPhone(phone.value)">Call</button>

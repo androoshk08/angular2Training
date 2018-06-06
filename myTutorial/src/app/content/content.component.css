@@ -1,0 +1,11 @@
+.firstName {
+  display: none;
+}
+
+.bordered {
+  border: double;
+}
+
+.close {
+  font-color: blueviolet;
+}

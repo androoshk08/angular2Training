@@ -1,0 +1,22 @@
+<p>
+  product works!
+</p>
+
+
+<label>Product name: {{product.productName}}</label><br>
+<input type="text" [(ngModel)] = "product.productName"><br>
+<label>Product manufacture: {{product.productManufacturer}}</label><br>
+<input type="text" [(ngModel)] = "product.productManufacturer"><br>
+<label>Product price: {{product.productPrice}}</label><br>
+<input type="text" [(ngModel)] = "product.productPrice"><br>
+
+<button (click) = addProduct(product)> Add product</button>
+
+
+<label>Major: {{major}}</label><br>
+<input type="text" [(ngModel)] = "major"><br>
+<label>Minor: {{minor}}</label><br>
+<input type="text" [(ngModel)] = "minor"><br>
+
+ <ul><app-product-child [product]="product" [master]="Andra" *ngFor="let product of productList"></app-product-child></ul>
+
