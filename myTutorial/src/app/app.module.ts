@@ -8,6 +8,8 @@ import {ContentComponent} from "./content/content.component";
 import {FormsModule} from "@angular/forms";
 import { ProductComponent } from './product/product.component';
 import { ProductChildComponent } from './product-child/product-child.component';
+import { VoterParentComponent } from './voter-parent/voter-parent.component';
+import { VoterChildComponent } from './voter-child/voter-child.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ProductChildComponent } from './product-child/product-child.component';
     HeaderComponent,
     ContentComponent,
     ProductComponent,
-    ProductChildComponent
+    ProductChildComponent,
+    VoterParentComponent,
+    VoterChildComponent
   ],
   imports: [
     BrowserModule,
