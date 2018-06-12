@@ -10,6 +10,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductChildComponent } from './product-child/product-child.component';
 import { VoterParentComponent } from './voter-parent/voter-parent.component';
 import { VoterChildComponent } from './voter-child/voter-child.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VoterChildComponent } from './voter-child/voter-child.component';
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

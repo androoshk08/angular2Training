@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../model/product';
+import {MoviesService} from "../services/movies.service";
+import {Movie} from "../model/movie";
 
 @Component({
   selector: 'app-product',
@@ -15,8 +17,11 @@ export class ProductComponent implements OnInit {
   productList: Array<Product>;
   major: number;
   minor: number;
+  movieService: MoviesService;
+  movie: Movie;
 
-  constructor() {
+  constructor(movieService:MoviesService) {
+    this.movieService = movieService;
     this.minor = 3;
     this.major = 4;
     this.product = new Product("", "" ,0);
@@ -27,6 +32,19 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.movieService.getMovies().subscribe((data) => console.log(data));
+    // this.movieService.getError().subscribe((data) => {
+    //   console.log(`merge bine si frumos`);
+    // }, (err) => {
+    //   console.log(JSON.stringify(err));
+    //   console.log(`nu merge pentru ca: + ${err.error.error}`);
+    // });
+
+    this.movieService.getPost({title: "Andra movie"}).subscribe((data) => console.log(data));
+    this.movieService.getMovie(2).subscribe((data: Movie) => {
+      this.movie = data;
+      console.log(this.movie);
+    })
   }
 
   addProduct(product: {productName: string, productManufacturer: string,productPrice: number}) {
