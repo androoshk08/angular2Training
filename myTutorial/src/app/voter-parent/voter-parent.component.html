@@ -3,5 +3,17 @@
 </p>
 
 <h2> Should mankind colonize the Universe?</h2>
-<h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>
+<h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>7
 <app-voter-child *ngFor="let voter of voters" [name]="voter" (onVoted) ="onVoted($event)"></app-voter-child>
+
+Child value: {{newTest}}
+
+<app-voter-child [(test)] ="newTest"></app-voter-child>
+
+<app-voter-child #timer></app-voter-child>
+<button (click) = "timer.start()"> Start</button>
+<button (click) = "timer.stop()"> Stop</button>
+
+Seconds: {{timer.seconds}}
+<br> Seconds(): {{seconds()}}
+
