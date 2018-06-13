@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-content',
@@ -13,8 +14,9 @@ export class ContentComponent implements OnInit {
   myVar:string;
   cities: Array<string>;
   currentHero: CurrentHero;
+  id: number;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
     this.name = 'Andra';
     this.condition = false;
     this.isSpecial = false;
@@ -23,7 +25,15 @@ export class ContentComponent implements OnInit {
     this.currentHero = new CurrentHero("Hercule");
   }
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.route.params.subscribe(params => {
+      this.id =+params['id'];
+    });
+
+    let id2 = this.route.snapshot.paramMap.get('id');
+
+    console.log("id " + this.id);
+    console.log("id2 " + id2);
   }
 
   hello() {
