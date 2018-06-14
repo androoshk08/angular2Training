@@ -1,0 +1,12 @@
+
+<div class="container">
+<label>Select a category</label><br>
+
+
+  <div class="list-group">
+    <!--<div  routerLink="category/{{category.id}}" routerLinkActive="active" *ngFor="let category of categories">{{category.id}}</div>-->
+  <div (click)="goToCategory(category)" *ngFor="let category of categories">{{category.id}}</div>
+</div>
+
+</div>
+<router-outlet></router-outlet>
